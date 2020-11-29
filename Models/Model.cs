@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using Microsoft.EntityFrameworkCore;
 
 namespace EFGetStarted.Models
@@ -19,6 +20,8 @@ namespace EFGetStarted.Models
     public class Blog
     {
         public int BlogId { get; set; }
+        [Required]
+        [MaxLength(500)]
         public string Url { get; set; }
         public List<Post> Posts { get;  } = new List<Post>();
     }
@@ -26,7 +29,11 @@ namespace EFGetStarted.Models
     public class Post
     {
         public int PostId { get; set; }
+        [Required]
+        [MaxLength(500)]
         public string Title { get; set; }
+        [Required]
+        [MaxLength(2000)]
         public string Content { get; set; }
         public int BlogId { get; set; }
         public Blog Blog { get; set; }
